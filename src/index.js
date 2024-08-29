@@ -9,17 +9,31 @@ async function replaceContent(container, urlPage) {
 }
 
 async function loadStyles(urlPage) {
-    try {
-        const response = await fetch(urlPage);
-        if (!response.ok){
-            throw new Error ('¡Upss, algo salió mal!')
-        }
-        const content = await response.text();
-        const style = document.getElementById("page");
-        style.textContent = content;
-    } catch (error) {
-        console.error("¡Upss, algo salió mal con los estilos!", error);
+  try {
+    const response = await fetch(urlPage);
+    if (!response.ok) {
+      throw new Error("¡Upss, algo salió mal!");
     }
+    const content = await response.text();
+    const style = document.getElementById("page");
+    style.textContent = content;
+  } catch (error) {
+    console.error("¡Upss, algo salió mal al estilizar!", error);
+  }
+}
+
+async function loadJs(urlPage) {
+  try {
+    const response = await fetch(urlPage);
+    if (!response.ok) {
+      throw new Error("¡Upss, algo salió mal!");
+    }
+    const content = await response.text();
+    const script = document.getElementById("pageScript");
+    script.textContent = content;
+  } catch (error) {
+    console.error("¡Upss, algo salió mal con el js!", error);
+  }
 }
 
 let root = document.getElementById("root");
@@ -32,7 +46,8 @@ function navigateTo(page) {
   let defaultPage = ROUTES.find((route) => route.name === page);
 
   replaceContent(root, defaultPage?.htmlUrl);
-  replaceContent(defaultPage?.cssUrl);
+  loadStyles(defaultPage?.cssUrl);
+  loadJs(defaultPage?.jsUrl);
 }
 
 replaceContent(header, "/src/layout/header/header.html");

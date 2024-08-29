@@ -1,4 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar">
+  <a href="#">NoteApp</a>
+  <a href="#" onclick="navigateTo('/')">Inicio</a>
+  <div class="dropdown">
+    <button class="dropbtn">Mis notas 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#" onclick="navigateTo('createNote')">Crear nota</a>
+      <a href="#">Ver notas</a>
+    </div>
+  </div> 
+  <a href="#">Link para agregar otras funcionalidades</a>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar notas..." onkeyup="filterNotes()">
+    <button type="submit">Buscar</button>
+  </div>
+</nav>  -->
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">NoteApp</a>
     <button
@@ -15,7 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="#" onclick="navigateTo('')">Inicio</a>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -29,7 +49,7 @@
             Mis notas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="../../pages/create/create.html">Crear nota</a></li>
+            <li><a class="dropdown-item" href="#" onclick="navigateTo('createNote')">Crear nota</a></li>
             <li><a class="dropdown-item" href="#">Ver notas</a></li>
           </ul>
         </li>
@@ -48,4 +68,4 @@
       </form>
     </div>
   </div>
-</nav>
+</nav>  
