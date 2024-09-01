@@ -16,4 +16,5 @@ body {
 
 main { 
   overflow: auto;
+  padding: 1rem;
 }
