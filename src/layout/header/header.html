@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
   <div class="container-fluid">
-    <a class="navbar-brand navbar-brand-custom" href="#">NoteApp</a>
+    <a
+      class="navbar-brand navbar-brand-custom"
+      href="/src/"
+      onclick="navigateTo('/dashboard')"
+      >NoteApp</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -18,8 +23,8 @@
           <a
             class="nav-link active"
             aria-current="page"
-            href="#"
-            onclick="navigateTo(''); closeNavbar();"
+            href="/src"
+            onclick="navigateTo('/src'); closeNavbar(); return false;"
             >Inicio</a
           >
         </li>
@@ -38,8 +43,8 @@
             <li>
               <a
                 class="dropdown-item"
-                href="#"
-                onclick="navigateTo('createNote'); closeNavbar();"
+                href="/createNote"
+                onclick="navigateTo('createNote'); closeNavbar(); return false;"
                 >Crear nota</a
               >
             </li>
