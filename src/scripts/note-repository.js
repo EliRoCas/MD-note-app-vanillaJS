@@ -24,6 +24,21 @@ class NoteRepository {
     return notes.length > 0 ? Math.max(...notes.map((n) => n.id ?? 0)) : 0;
   }
 
+  update(note) {
+    let notes = this.get();
+    let uptNote = notes.find((n) => n.id === note.id);
+    if (uptNote) {
+      // notes[uptNote] = note;
+      uptNote = note;
+      localStorage.setItem("notes", JSON.stringify(notes));
+    }
+  }
+
+  delete(id) {
+    let notes = this.get();
+    notes = notes.filter((note) => note.id !== id);
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }
 }
 
 const noteRepository = new NoteRepository();
