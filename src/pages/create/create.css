@@ -1,0 +1,6 @@
+section.form-group.date {
+  text-align: right;
+}
+input#date {
+  border: none;
+}

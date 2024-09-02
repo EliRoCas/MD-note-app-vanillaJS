@@ -1,4 +1,5 @@
 const noteForm = document.getElementById("noteForm");
+const dateInput = document.getElementById("date");
 
 function save(event) {
   event.preventDefault();
@@ -9,8 +10,13 @@ function save(event) {
   noteRepository.save(formValues);
 }
 
+const currentDate = new Date();
+const today = currentDate.toLocaleDateString();
+const time = currentDate.toLocaleTimeString();
+dateInput.value = `${today} ${time}`;
 
-// This is a first aproach, with the event listener direct on js  
+// This is the first approach for "save" function, where the event listener is added directly in JavaScript.
+// In this approach, we attach the event listener to the form element and handle the form submission within the callback function.
 // const noteForm = document.getElementById("noteForm");
 
 // noteForm.addEventListener("submit", function (event) {

@@ -1,24 +1,33 @@
 <article>
-    <form class="note-form" id="noteForm" onsubmit="save(event)">
-        <section class="form-group">
-            <label for="title">Título</label>
-            <input type="text" class="form-control" name="title" aria-describedby="titleHelp"
-                placeholder="Ingrese el título">
-        </section>
-        <section class="form-group">
-            <label for="body">Nota</label>
-            <textarea class="form-control" name="body" rows="10"></textarea>
-        </section>
-        <section class="form-group">
-            <label for="colection">Colección</label>
-            <select class="form-control" id="colection">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </section>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+  <form class="note-form" id="noteForm" onsubmit="save(event)">
+    <section class="form-group date">
+      <input type="text" id="date" name="date" readonly />
+    </section>
+    <section class="form-group">
+      <label for="title">Título</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        placeholder="Ingrese el título"
+        required
+      />
+    </section>
+    <section class="form-group">
+      <label for="body">Nota</label>
+      <textarea class="form-control" name="body" rows="10" required></textarea>
+    </section>
+    <section class="form-group">
+      <label for="colection">Colección</label>
+      <select class="form-control" id="colection" name="colection">
+        <option>Personal</option>
+        <option>Trabajo</option>
+        <option>Otro</option>
+      </select>
+    </section>
+
+    <label for="richText"></label>
+    <section id="richText" contenteditable="true"></section>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
 </article>
