@@ -7,6 +7,10 @@ function save(event) {
   const formData = new FormData(noteForm);
   const formValues = Object.fromEntries(formData.entries());
 
+  if (!formValues.id) {
+    formValues.id = noteRepository.getMaxId() + 1;
+  }
+
   noteRepository.save(formValues);
 }
 
