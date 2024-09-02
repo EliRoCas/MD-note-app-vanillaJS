@@ -1,7 +1,7 @@
 const ROUTES  = [
     {
-        "name": "/",
-        "htmlUrl": "",
+        "name": "/dashboard",
+        "htmlUrl": "/src/",
         "cssUrl": "", 
         "jsUrl": ""
     },

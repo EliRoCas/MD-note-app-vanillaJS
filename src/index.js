@@ -40,15 +40,23 @@ let root = document.getElementById("root");
 let header = document.getElementById("header");
 let footer = document.getElementById("footer");
 
-navigateTo("/");
-
 function navigateTo(page) {
   let defaultPage = ROUTES.find((route) => route.name === page);
 
-  replaceContent(root, defaultPage?.htmlUrl);
-  loadStyles(defaultPage?.cssUrl);
-  loadJs(defaultPage?.jsUrl);
+  if (defaultPage) {
+    replaceContent(root, defaultPage?.htmlUrl);
+    loadStyles(defaultPage?.cssUrl);
+    loadJs(defaultPage?.jsUrl);
+    history.pushState({ page: page }, "", page);
+  }
 }
-
 replaceContent(header, "/src/layout/header/header.html");
 replaceContent(footer, "/src/layout/footer/footer.html");
+
+//header
+function closeNavbar() {
+  const navBarCollapse = document.getElementById("navbarSupportedContent");
+  if (navBarCollapse.classList.contains("show")) {
+    navBarCollapse.classList.remove("show");
+  }
+}
