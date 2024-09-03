@@ -1,42 +1,37 @@
-const noteForm = document.getElementById("noteForm");
-const dateInput = document.getElementById("date");
-
 function save(event) {
   event.preventDefault();
 
+  const noteForm = document.getElementById("noteForm");
   const formData = new FormData(noteForm);
   const formValues = Object.fromEntries(formData.entries());
 
-  if (!formValues.id) {
-    formValues.id = noteRepository.getMaxId() + 1;
+  if (formValues.id) {
+    noteRepository.update(formValues);
+  } else {
+    noteRepository.save(formValues);
   }
 
-  noteRepository.save(formValues);
+  navigateTo("viewNotes");
 }
 
-const currentDate = new Date();
-const today = currentDate.toLocaleDateString();
-const time = currentDate.toLocaleTimeString();
-dateInput.value = `${today} ${time}`;
+function fillForm(data) {
+  const form = document.getElementById("noteForm");
+  for (const key in data) {
+    if (data.hasOwnProperty(key) && form.elements[key]) {
+      form.elements[key].value = data[key];
+    }
+  }
+}
 
-// This is the first approach for "save" function, where the event listener is added directly in JavaScript.
-// In this approach, we attach the event listener to the form element and handle the form submission within the callback function.
-// const noteForm = document.getElementById("noteForm");
+(function () {
+  const dateInput = document.getElementById("date");
+  const currentDate = new Date();
+  const today = currentDate.toLocaleDateString();
+  const time = currentDate.toLocaleTimeString();
+  dateInput.value = `${today} ${time}`;
 
-// noteForm.addEventListener("submit", function (event) {
-//   event.preventDefault();
-
-//   const formData = new FormData(noteForm);
-//   const formValues = Object.fromEntries(formData.entries());
-
-//   alert(JSON.stringify(formValues));
-//   //   localStorage.setItem("note", JSON.stringify(note));
-//   //   debugger;
-// });
-
-//   alert(JSON.stringify(formValues));
-//   localStorage.setItem("note", JSON.stringify(formValues));
-//   debugger;
-
-//   noteRepository.save(formValues);
-// }
+  if (params && params.id) {
+    let note = noteRepository.getById(params.id);
+    fillForm(note);
+  }
+})();
