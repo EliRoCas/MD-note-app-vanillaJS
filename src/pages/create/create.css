@@ -1,7 +1,6 @@
-form {
-    display: flex;
-    justify-content: center;
-
-    margin: 2rem;
-    background-color: #cf9768;
+section.form-group.date {
+  text-align: right;
+}
+input#date {
+  border: none;
 }
