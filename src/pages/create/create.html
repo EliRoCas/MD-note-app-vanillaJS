@@ -1,4 +1,34 @@
-<form action="">
-    <input type="text" name="name" id="name" class="danger">
-    <label for="name">Prueba</label>
-</form>
+<article>
+  <form class="note-form" id="noteForm" onsubmit="save(event)">
+    <input type="hidden" id="idNote" name="id" />
+    <section class="form-group date">
+      <input type="text" id="date" name="date" readonly />
+    </section>
+    <section class="form-group">
+      <label for="title">Título</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        placeholder="Ingrese el título"
+        required
+      />
+    </section>
+    <section class="form-group">
+      <label for="body">Nota</label>
+      <textarea class="form-control" name="body" rows="10" required></textarea>
+    </section>
+    <section class="form-group">
+      <label for="colection">Colección</label>
+      <select class="form-control" id="colection" name="colection">
+        <option>Personal</option>
+        <option>Trabajo</option>
+        <option>Otro</option>
+      </select>
+    </section>
+
+    <label for="richText"></label>
+    <section id="richText" contenteditable="true"></section>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</article>
