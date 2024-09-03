@@ -12,10 +12,7 @@ class NoteRepository {
   }
 
   save(note) {
-    let notes = this.get();
-    note.id = this.getMaxId() + 1;
-    notes.push(note);
-
+    let notes = [...this.get(), { ...note, id: this.getMaxId() + 1 }];
     localStorage.setItem("notes", JSON.stringify(notes));
   }
 
@@ -25,39 +22,18 @@ class NoteRepository {
   }
 
   update(note) {
-    let notes = this.get();
-    let uptNote = notes.find((n) => n.id === note.id);
-    if (uptNote) {
-      // notes[uptNote] = note;
-      uptNote = note;
-      localStorage.setItem("notes", JSON.stringify(notes));
-    }
+    let notes = this.get().map((n) =>
+      n.id.toString() === note.id.toString() ? note : n
+    );
+    localStorage.setItem("notes", JSON.stringify(notes));
   }
 
   delete(id) {
-    let notes = this.get();
-    notes = notes.filter((note) => note.id !== id);
+    let notes = this.get().filter(
+      (note) => note.id.toString() !== id.toString()
+    );
     localStorage.setItem("notes", JSON.stringify(notes));
   }
 }
 
 const noteRepository = new NoteRepository();
-
-// This is the same functionality, but without using class.
-// const noteRepository = {
-//   save: (note) => {
-//     // var notes = [note];
-
-//     let notes = JSON.parse(localStorage.getItem("notes"));
-//     notes.push(note);
-
-//     localStorage.setItem("notes", JSON.stringify(notes));
-//   },
-//   get: () => {
-//     return JSON.parse(localStorage.getItem("notes"));
-//   },
-//   getByCategory: (category) => {
-//     let notes = JSON.parse(localStorage.getItem("notes"));
-//     return notes.filter((n) => n.category === category);
-//   },
-// };
