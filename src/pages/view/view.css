@@ -1,4 +1,15 @@
-section#noteList {
-  background-color: aqua;
+button {
+  margin: 0 0.2rem;
 }
 
+.btn-light.border-danger:hover {
+  background-color: #cf2c16; 
+  color: #ffffff;
+  border-color: #1a1918; 
+}
+
+.btn-light.border-warning:hover {
+  background-color: #ffc107; 
+  color: #000;
+  border-color: #1a1918; 
+}
