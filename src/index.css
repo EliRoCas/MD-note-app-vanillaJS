@@ -42,3 +42,13 @@ hr {
 .text-center {
   background-color: #ffc107;
 }
+
+/* dark-mode */
+body.dark-mode {
+  background-color: #050505;
+  color: #ffffff;
+}
+
+button {
+  margin: 0 0.5rem;
+}
