@@ -58,9 +58,15 @@ function loadNotes() {
     cardText.className = "card-text";
     cardText.textContent = note.body;
 
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "btn btn-primary";
+    deleteBtn.textContent = "eliminar";
+    deleteBtn.onclick = () => remove(note.id);
 
     cardBody.appendChild(cardTitle);// contenedor principal
     cardBody.appendChild(cardText);
+    cardBody.appendChild(deleteBtn);
+
 
     card.appendChild(cardBody);
     col.appendChild(card);
@@ -68,6 +74,21 @@ function loadNotes() {
   });
 }
 
+ function remove(note) {noteRepository.delete(note);
+  loadNotes();
+ } 
 
 loadNotes();
+
+
+
+// Manejador de eventos para el botón de eliminar
+function deleteAllNotes() {
+  const confirmation = confirm("¿Desea eliminar todas las notas?");
+  if (confirmation){
+  noteRepository.deleteAll(); // Eliminar las notas
+  alert("Todas las notas han sido eliminadas.");
+  loadNotes(); // Recargar las notas}   
+  }
+};
 
