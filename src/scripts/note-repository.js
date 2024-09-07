@@ -4,7 +4,7 @@ class NoteRepository {
   }
 
   getByCategory(category) {
-    return this.get().filter((n) => n.category === category);
+    return this.get().filter((n) => n.colection.toLowerCase() === category.toLowerCase());
   }
 
   getById(id) {
@@ -33,6 +33,9 @@ class NoteRepository {
       (note) => note.id.toString() !== id.toString()
     );
     localStorage.setItem("notes", JSON.stringify(notes));
+  }
+  deleteAll(){
+    localStorage.removeItem("notes");
   }
 }
 

@@ -42,3 +42,26 @@ hr {
 .text-center {
   background-color: #ffc107;
 }
+button {
+  margin: 0.2rem;
+}
+
+/* dark-mode */
+body.dark-mode {
+  background-color: #050505;
+  color: #ffffff;
+}
+
+button#dark-mode {
+  margin: 0.2rem 1.5rem;
+}
+
+/* filter */
+.custom-label::before {
+  content: "|";
+  position: absolute;
+  left: -10px; 
+  top: 50%;
+  transform: translateY(-60%);
+  color: #000; 
+}

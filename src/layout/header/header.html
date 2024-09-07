@@ -24,11 +24,44 @@
             class="nav-link active"
             aria-current="page"
             href="/src"
-            onclick="navigateTo('viewNotes'); closeNavbar(); return false;"
-            >Inicio</a
+            onclick="navigateTo('createNote'); closeNavbar(); return false;"
+            >Crear nota</a
           >
         </li>
-        <li class="nav-item dropdown">
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="/src/"
+            onclick="navigateTo('viewNotes'); closeNavbar(); return false"
+            >Ver notas</a
+          >
+        </li>
+      </ul>
+
+      <button id="dark-mode" onclick="darkMode()" class="btn btn-outline-dark">
+        <i class="fa-solid fa-moon"></i>
+        Modo Oscuro
+      </button>
+      <form class="d-flex">
+        <label for="colection" class="position-relative custom-label"
+          >Filtrar por colecciones</label
+        >
+        <select id="filter" class="form-control me-2" onchange="loadNotes()">
+          <option value="all">Todas las colecciones</option>
+          <option value="personal">Personal</option>
+          <option value="hogar">Hogar</option>
+          <option value="trabajo">Trabajo</option>
+          <option value="estudio">Estudio</option>
+          <option value="otro">Otro</option>
+        </select>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Código para hacer el menú desplegable en la barra de navegación: -->
+<!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -49,27 +82,12 @@
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#" onclick="closeNavbar();"
+              <a
+                class="dropdown-item"
+                href="/src/"
+                onclick="navigateTo('viewNotes'); closeNavbar(); return false"
                 >Ver notas</a
               >
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="closeNavbar();"
-            >Link para agregrar otras funcionalidades</a
-          >
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Buscar"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-dark" type="submit">Buscar</button>
-      </form>
-    </div>
-  </div>
-</nav>
+        </li> -->

@@ -72,3 +72,14 @@ function closeNavbar() {
     navBarCollapse.classList.remove("show");
   }
 }
+
+navigateTo("viewNotes");
+
+function darkMode() {
+  document.body.classList.toggle('dark-mode');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const darkModeButton = document.getElementById("dark-mode");
+  darkModeButton.onclick = darkMode;
+});
