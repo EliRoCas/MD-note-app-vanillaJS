@@ -72,3 +72,5 @@ function closeNavbar() {
     navBarCollapse.classList.remove("show");
   }
 }
+
+navigateTo("viewNotes");

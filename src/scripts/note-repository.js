@@ -34,6 +34,9 @@ class NoteRepository {
     );
     localStorage.setItem("notes", JSON.stringify(notes));
   }
+  deleteAll(){
+    localStorage.removeItem("notes");
+  }
 }
 
 const noteRepository = new NoteRepository();
