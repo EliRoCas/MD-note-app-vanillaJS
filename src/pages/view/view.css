@@ -1,3 +1,7 @@
+.card {
+  background-color: #f6d46ec2;
+}
+
 button {
   margin: 0 0.2rem;
 }
@@ -13,3 +17,4 @@ button {
   color: #000;
   border-color: #1a1918; 
 }
+

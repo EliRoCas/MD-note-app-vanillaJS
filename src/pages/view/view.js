@@ -76,11 +76,3 @@ function deleteAllNotes() {
   }
 }
 
-// function handleFilterChange(event) {
-//   loadNotes();
-// }
-
-// function filterByCategory(category) {
-//   const notes = noteRepository.getByCategory(category);
-//   loadNotes(notes);
-// }
