@@ -27,9 +27,9 @@ function loadNotes() {
     cardTitle.className = "card-title";
     cardTitle.textContent = note.title;
 
-    const cardText = document.createElement("p");
+    const cardText = document.createElement("div");
     cardText.className = "card-text";
-    cardText.textContent = note.body;
+    cardText.innerHTML = note.content;
 
     const editButton = document.createElement("button");
     editButton.className = "btn btn-light border border-warning";

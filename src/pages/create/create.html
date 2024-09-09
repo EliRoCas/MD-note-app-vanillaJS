@@ -16,7 +16,8 @@
     </section>
     <section class="form-group">
       <label for="body">Nota</label>
-      <textarea class="form-control" name="body" rows="10" required></textarea>
+      <div id="editor" class="form-control" name="body" style="height: 300px;" required></div>
+      <input type="hidden" id="hiddenArea" name="content">
     </section>
 
     <section class="form-group">
@@ -29,9 +30,6 @@
         <option value="otro">Otro</option>
       </select>
     </section>
-
-    <label for="richText"></label>
-    <section id="richText" contenteditable="true"></section>
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </article>
