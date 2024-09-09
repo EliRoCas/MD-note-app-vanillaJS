@@ -48,7 +48,7 @@ button {
 
 /* dark-mode */
 body.dark-mode {
-  background-color: #050505;
+  background-color: #2c2c2c;
   color: #ffffff;
 }
 
@@ -56,12 +56,17 @@ button#dark-mode {
   margin: 0.2rem 1.5rem;
 }
 
+body.dark-mode .form-control,
+body.dark-mode input#date {
+  background-color: #f8daad;
+}
+
 /* filter */
 .custom-label::before {
   content: "|";
   position: absolute;
-  left: -10px; 
+  left: -10px;
   top: 50%;
   transform: translateY(-60%);
-  color: #000; 
+  color: #000;
 }
