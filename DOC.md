@@ -10,12 +10,8 @@ La estructura de la página busca 'simular' una SPA, con esto en mente, lo sigui
         Pages - Carpeta -
         Esta carpeta funciona como el contenedor de nuestros 'módulos' (los organismos ?) de la app.
             create (carpeta) -> irá el contenido relacionado con la creación de una nota
-            edit (carpeta) -> irá el contenido relacionado con la edición.
-            view (carpeta) -> irá el contenido relacionado con el módulo de visualización de una nota.
-            history o list (carpeta) -> irá el contenido relacionado con el módulo de visualización de Todas las notas o el histórico de notas creadas.
-            delete (carpeta)
-            settings (carpeta)
-
+            view (carpeta) -> irá el contenido relacionado con el módulo de visualización de una nota, la eliminación y la edición.
+            
         Dada la configuración de "SPA", el objetivo es que en cada elemento que se cree dentro de las carpetas mantenga una estructura - nombreDelComponente.html/css/js
 
         Layout - Carpeta -
@@ -99,5 +95,7 @@ const ROUTES [
         El objetivo de este archivo es que en cada módulo de la app, se cree un objeto dentro de él, siguiendo la estructura anterior y el ejemplo que está en el archivo.
 
         Esto es importante, porque nos permite mantener una estructura funcional de SPA en toda nuestra aplicación, ya que las funciones principales del index.js iteran sobre este elemento.
+
+
 
 
