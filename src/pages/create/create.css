@@ -5,3 +5,7 @@ input#date {
   border: none;
 }
 
+#editor{
+  height: 300px;
+}
+
