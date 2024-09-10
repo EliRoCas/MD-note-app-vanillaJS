@@ -1,7 +1,15 @@
+var quill = new Quill('#editor', {
+  theme: 'snow'
+});
+
 function save(event) {
   event.preventDefault();
 
   const noteForm = document.getElementById("noteForm");
+  const hiddenArea = document.getElementById('hiddenArea');
+  hiddenArea.value = quill.root.innerHTML;
+
+
   const formData = new FormData(noteForm);
   const formValues = Object.fromEntries(formData.entries());
 
@@ -21,6 +29,7 @@ function fillForm(data) {
       form.elements[key].value = data[key];
     }
   }
+  quill.root.innerHTML = data.content || '';
 }
 
 (function () {
@@ -35,3 +44,5 @@ function fillForm(data) {
     fillForm(note);
   }
 })();
+
+

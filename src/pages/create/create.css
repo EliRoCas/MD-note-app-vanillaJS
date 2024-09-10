@@ -4,3 +4,6 @@ section.form-group.date {
 input#date {
   border: none;
 }
+#editor{
+  height: 300px;
+}

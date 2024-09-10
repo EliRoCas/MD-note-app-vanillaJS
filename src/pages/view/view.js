@@ -1,40 +1,3 @@
-/* function loadNotes() {
-  const notes = noteRepository.get();
-  notesList.innerHTML = "";
-
-  notes.forEach((note) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-        <strong>${note.title}</strong> - ${note.body} 
-        <button onclick="edit(${note.id})">Editar</button>
-        <button onclick="remove(${note.id})">Borrar</button>
-      `;
-    notesList.appendChild(li);
-  });
-}
-function remove(note) {
-  noteRepository.delete(note);
-  loadNotes();
-}
-
-function edit(item) {
-  navigateTo("editNote", { id: item });
-}
-
-loadNotes();
-*/
-/*
-    function loadNotes() {
-        const notes = JSON.parse(localStorage.getItem('notes')) || [];
-        notes.forEach(note => {
-            const noteItem = document.createElement('li');
-            noteItem.textContent = note.title + ": " + note.content;
-            notesList.appendChild(noteItem);
-        });
-    }
-
-    loadNotes(); */
-
 function loadNotes() {
   let category = document.getElementById("filter").value;
 
@@ -64,9 +27,9 @@ function loadNotes() {
     cardTitle.className = "card-title";
     cardTitle.textContent = note.title;
 
-    const cardText = document.createElement("p");
+    const cardText = document.createElement("div");
     cardText.className = "card-text";
-    cardText.textContent = note.body;
+    cardText.innerHTML = note.content;
 
     const editButton = document.createElement("button");
     editButton.className = "btn btn-light border border-warning";
@@ -113,11 +76,3 @@ function deleteAllNotes() {
   }
 }
 
-// function handleFilterChange(event) {
-//   loadNotes();
-// }
-
-// function filterByCategory(category) {
-//   const notes = noteRepository.getByCategory(category);
-//   loadNotes(notes);
-// }
