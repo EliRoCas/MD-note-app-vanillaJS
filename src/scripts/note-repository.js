@@ -4,7 +4,7 @@ class NoteRepository {
   }
 
   getByCategory(category) {
-    return this.get().filter((n) => n.category === category);
+    return this.get().filter((n) => n.colection.toLowerCase() === category.toLowerCase());
   }
 
   getById(id) {

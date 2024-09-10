@@ -38,14 +38,23 @@
           >
         </li>
       </ul>
+
+      <button id="dark-mode" onclick="darkMode()" class="btn btn-outline-dark">
+        <i class="fa-solid fa-moon"></i>
+        Modo Oscuro
+      </button>
       <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Filtrar por colección"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-dark" type="submit">Buscar</button>
+        <label for="colection" class="position-relative custom-label"
+          >Filtrar por colecciones</label
+        >
+        <select id="filter" class="form-control me-2" onchange="loadNotes()">
+          <option value="all">Todas las colecciones</option>
+          <option value="personal">Personal</option>
+          <option value="hogar">Hogar</option>
+          <option value="trabajo">Trabajo</option>
+          <option value="estudio">Estudio</option>
+          <option value="otro">Otro</option>
+        </select>
       </form>
     </div>
   </div>

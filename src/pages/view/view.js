@@ -36,7 +36,13 @@ loadNotes();
     loadNotes(); */
 
 function loadNotes() {
-  const notes = noteRepository.get();
+  let category = document.getElementById("filter").value;
+
+  const notes =
+    category === "all"
+      ? noteRepository.get()
+      : noteRepository.getByCategory(category);
+
   const notesList = document.getElementById("notesList");
   notesList.innerHTML = "";
 
@@ -46,6 +52,10 @@ function loadNotes() {
 
     const card = document.createElement("div");
     card.className = "card"; // para cada columna se crea una tarjeta
+
+    const cardColection = document.createElement("small");
+    cardColection.className = "text-muted d-block";
+    cardColection.textContent = note.colection;
 
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
@@ -70,7 +80,8 @@ function loadNotes() {
     deleteBtn.textContent = "eliminar";
     deleteBtn.onclick = () => remove(note.id);
 
-    cardBody.appendChild(cardTitle); // contenedor principal
+    cardBody.appendChild(cardColection); // contenedor principal
+    cardBody.appendChild(cardTitle); 
     cardBody.appendChild(cardText);
     cardBody.appendChild(editButton);
     cardBody.appendChild(deleteBtn);
@@ -101,3 +112,12 @@ function deleteAllNotes() {
     loadNotes(); // Recargar las notas}
   }
 }
+
+// function handleFilterChange(event) {
+//   loadNotes();
+// }
+
+// function filterByCategory(category) {
+//   const notes = noteRepository.getByCategory(category);
+//   loadNotes(notes);
+// }
